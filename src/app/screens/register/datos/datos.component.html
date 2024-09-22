@@ -34,6 +34,7 @@
       type="number"
       labelPlacement="floating"
       label="Número de documento"
+      inputmode="numeric"
     >
     </ion-input>
     <ion-text class="error" *ngIf="isTouched('document_number')" color="danger">
@@ -49,6 +50,7 @@
       type="date"
       labelPlacement="floating"
       label="Fecha de expedición del documento"
+      inputmode="numeric"
     >
     </ion-input>
     <ion-text class="error" *ngIf="isTouched('document_date')" color="danger">
@@ -64,6 +66,7 @@
       type="date"
       labelPlacement="floating"
       label="Fecha de nacimiento"
+      inputmode="numeric"
     >
     </ion-input>
     <ion-text class="error" *ngIf="isTouched('birthday')" color="danger">
@@ -101,6 +104,7 @@
       type="email"
       labelPlacement="floating"
       label="Correo electrónico"
+      inputmode="email"
     >
     </ion-input>
     <ion-text class="error" *ngIf="isTouched('email')" color="danger">
@@ -119,6 +123,7 @@
       type="email"
       labelPlacement="floating"
       label="Confirmar correo electrónico"
+      inputmode="email"
     >
     </ion-input>
     <ion-text class="error" *ngIf="isTouched('email_check')" color="danger">
@@ -140,6 +145,7 @@
       [type]="show_pass[0] === true ? 'number' : 'password'"
       labelPlacement="floating"
       label="PIN de seguridad"
+      inputmode="numeric"
     >
     </ion-input>
     <ion-button
@@ -165,6 +171,7 @@
       [type]="show_pass[1] === true ? 'number' : 'password'"
       labelPlacement="floating"
       label="Confirmar PIN de seguridad"
+      inputmode="numeric"
     >
     </ion-input>
     <ion-button
