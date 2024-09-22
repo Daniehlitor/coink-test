@@ -1,0 +1,198 @@
+<div class="flex flex-center msg-register">
+  <img src="assets/Oink-M.svg" alt="icono" />
+
+  <div>
+    <h5>¿Cuáles son tus datos?</h5>
+    <p>Ahora necesitamos saber algunos datos tuyos</p>
+  </div>
+</div>
+
+<form [formGroup]="formData">
+  <h2 class="content-subtitle">Documento de identidad</h2>
+
+  <div class="input-wraper">
+    <ion-select
+      formControlName="document_type"
+      labelPlacement="floating"
+      label="Tipo de documento"
+      interface="popover"
+    >
+      <ion-select-option *ngFor="let type of documentTypes" [value]="type.id">
+        {{ type.name }}
+      </ion-select-option>
+    </ion-select>
+    <ion-text class="error" *ngIf="isTouched('document_type')" color="danger">
+      <small *ngIf="getErrors('document_type')['required']">
+        El tipo de documento es requerido
+      </small>
+    </ion-text>
+  </div>
+
+  <div class="input-wraper">
+    <ion-input
+      formControlName="document_number"
+      type="number"
+      labelPlacement="floating"
+      label="Número de documento"
+    >
+    </ion-input>
+    <ion-text class="error" *ngIf="isTouched('document_number')" color="danger">
+      <small *ngIf="getErrors('document_number')['required']">
+        El número de documento es requerido
+      </small>
+    </ion-text>
+  </div>
+
+  <div class="input-wraper">
+    <ion-input
+      formControlName="document_date"
+      type="date"
+      labelPlacement="floating"
+      label="Fecha de expedición del documento"
+    >
+    </ion-input>
+    <ion-text class="error" *ngIf="isTouched('document_date')" color="danger">
+      <small *ngIf="getErrors('document_date')['required']">
+        La fecha de expedición del documento es requerido
+      </small>
+    </ion-text>
+  </div>
+
+  <div class="input-wraper">
+    <ion-input
+      formControlName="birthday"
+      type="date"
+      labelPlacement="floating"
+      label="Fecha de nacimiento"
+    >
+    </ion-input>
+    <ion-text class="error" *ngIf="isTouched('birthday')" color="danger">
+      <small *ngIf="getErrors('birthday')['required']">
+        La fecha de nacimiento es requerida
+      </small>
+    </ion-text>
+  </div>
+
+  <div class="input-wraper">
+    <ion-select
+      formControlName="gender"
+      labelPlacement="floating"
+      label="Genero"
+      interface="popover"
+    >
+      <ion-select-option *ngFor="let gender of genders" [value]="gender.id">
+        {{ gender.name }}
+      </ion-select-option>
+    </ion-select>
+    <ion-text class="error" *ngIf="isTouched('gender')" color="danger">
+      <small *ngIf="getErrors('gender')['required']">
+        El genero es requerido
+      </small>
+    </ion-text>
+  </div>
+
+  <br /><br />
+
+  <h2 class="content-subtitle">Configura tu cuenta</h2>
+
+  <div class="input-wraper">
+    <ion-input
+      formControlName="email"
+      type="email"
+      labelPlacement="floating"
+      label="Correo electrónico"
+    >
+    </ion-input>
+    <ion-text class="error" *ngIf="isTouched('email')" color="danger">
+      <small *ngIf="getErrors('email')['required']">
+        El correo electrónico es requerido
+      </small>
+      <small *ngIf="getErrors('email')['email']">
+        Debes ingresar un correo electrónico
+      </small>
+    </ion-text>
+  </div>
+
+  <div class="input-wraper">
+    <ion-input
+      formControlName="email_check"
+      type="email"
+      labelPlacement="floating"
+      label="Confirmar correo electrónico"
+    >
+    </ion-input>
+    <ion-text class="error" *ngIf="isTouched('email_check')" color="danger">
+      <small *ngIf="getErrors('email_check')['required']">
+        Debes confirmar tu correo electrónico.
+      </small>
+      <small *ngIf="getErrors('email_check')['email']">
+        Debes ingresar un correo electrónico.
+      </small>
+      <small *ngIf="getErrors('email_check')['isDifferent']">
+        Los campos de correo electrónico deben coincidir.
+      </small>
+    </ion-text>
+  </div>
+
+  <div class="input-wraper">
+    <ion-input
+      formControlName="password"
+      [type]="show_pass[0] === true ? 'number' : 'password'"
+      labelPlacement="floating"
+      label="PIN de seguridad"
+    >
+    </ion-input>
+    <ion-button
+      (click)="onShow(0)"
+      fill="clear"
+      shape="round"
+      class="end-btn"
+      aria-hidden="true"
+    >
+      <ion-icon slot="icon-only" name="eye"></ion-icon>
+    </ion-button>
+
+    <ion-text class="error" *ngIf="isTouched('password')" color="danger">
+      <small *ngIf="getErrors('password')['required']">
+        La contraseña es requerida
+      </small>
+    </ion-text>
+  </div>
+
+  <div class="input-wraper">
+    <ion-input
+      formControlName="password_check"
+      [type]="show_pass[1] === true ? 'number' : 'password'"
+      labelPlacement="floating"
+      label="Confirmar PIN de seguridad"
+    >
+    </ion-input>
+    <ion-button
+      (click)="onShow(1)"
+      fill="clear"
+      shape="round"
+      class="end-btn"
+      aria-hidden="true"
+    >
+      <ion-icon slot="icon-only" name="eye"></ion-icon>
+    </ion-button>
+
+    <ion-text class="error" *ngIf="isTouched('password_check')" color="danger">
+      <small *ngIf="getErrors('password_check')['required']">
+        Debes confirmar tu PIN de seguridad
+      </small>
+      <small *ngIf="getErrors('password_check')['isDifferent']">
+        Los campos de PIN deben coincidir
+      </small>
+    </ion-text>
+  </div>
+
+  <ion-button
+    [disabled]="!formData.valid"
+    class="btn btn-primary"
+    expand="block"
+    (click)="onSubmit()"
+  >
+    Siguiente
+  </ion-button>
+</form>

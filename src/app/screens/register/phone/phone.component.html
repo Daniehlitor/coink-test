@@ -1,0 +1,42 @@
+<section>
+  <div class="flex flex-center msg-register">
+    <img src="assets/Oink.svg" alt="icono" />
+    <span> Para comenzar, por favor ingresa <b>tu número celular.</b></span>
+  </div>
+
+  <div class="input-wraper">
+    <ion-input
+      type="text"
+      class="ion-text-center"
+      placeholder="( X X X - X X X X X X X )"
+      [(ngModel)]="phone"
+    ></ion-input>
+  </div>
+</section>
+
+<section id="keyboard" class="flex flex-between">
+  <div
+    *ngFor="let item of [].constructor(12); let i = index"
+    class="ion-activatable ripple-parent col flex flex-center"
+    (click)="onClick(i)"
+  >
+    <ng-container *ngIf="i < 9"> {{ i + 1 }}</ng-container>
+    <ng-container *ngIf="i === 10"> 0 </ng-container>
+
+    <ng-container *ngIf="i === 9">
+      <img src="assets/Backspace.svg" id="backspace" />
+    </ng-container>
+
+    <ng-container *ngIf="i === 11">
+      <ion-button
+        (click)="onSubmit()"
+        [disabled]="phone.length < 10"
+        id="submit"
+      >
+        <ion-icon name="checkmark-outline"></ion-icon>
+      </ion-button>
+    </ng-container>
+
+    <ion-ripple-effect *ngIf="i !== 11"></ion-ripple-effect>
+  </div>
+</section>

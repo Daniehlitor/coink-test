@@ -1,0 +1,24 @@
+ion-card {
+  width: 80%;
+}
+ion-card-title {
+  --color: var(--secondary);
+  font-size: 18px;
+  font-weight: 500px;
+}
+
+.content-home {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-grow: 1;
+}
+
+ion-label {
+  letter-spacing: 1px;
+}
+
+h3 {
+  font-weight: 550;
+}

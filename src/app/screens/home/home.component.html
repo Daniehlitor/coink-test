@@ -1,0 +1,68 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title class="ion-text-center">¡Bienvenido!</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="flex flex-between">
+  <div class="content-home">
+    <ion-card *ngIf="data">
+      <ion-card-header>
+        <ion-card-title>Datos del usuario</ion-card-title>
+      </ion-card-header>
+
+      <ion-card-content>
+        <ion-item>
+          <ion-label>
+            <h3>Tipo de documento</h3>
+            <small>{{ documentType }}</small>
+          </ion-label>
+        </ion-item>
+
+        <ion-item>
+          <ion-label>
+            <h3>Número de documento</h3>
+            <small>{{ data.document_number }}</small>
+          </ion-label>
+        </ion-item>
+
+        <ion-item>
+          <ion-label>
+            <h3>Fecha de expedición</h3>
+            <small>{{ data.document_date | date : "dd/MM/yyyy" }}</small>
+          </ion-label>
+        </ion-item>
+
+        <ion-item>
+          <ion-label>
+            <h3>Fecha de nacimiento</h3>
+            <small>{{ data.birthday | date }}</small>
+          </ion-label>
+        </ion-item>
+
+        <ion-item>
+          <ion-label>
+            <h3>Género</h3>
+            <small>{{ gender }}</small>
+          </ion-label>
+        </ion-item>
+
+        <ion-item>
+          <ion-label>
+            <h3>Correo electrónico</h3>
+            <small>{{ data.email }}</small>
+          </ion-label>
+        </ion-item>
+      </ion-card-content>
+    </ion-card>
+  </div>
+
+  <ion-button
+    routerLinkActive="router-link-active"
+    class="btn ion-margin-bottom w-100"
+    expand="block"
+    (click)="onLogOut()"
+  >
+    Cerrar sesión
+  </ion-button>
+</ion-content>

@@ -1,0 +1,49 @@
+p,
+h2 {
+  margin: 0;
+}
+
+p {
+  margin-top: 16px;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 20px;
+  color: var(--black);
+}
+
+a {
+  display: inline-block;
+  margin-top: 40px;
+  color: var(--secondary);
+  font-weight: 700;
+}
+
+ion-checkbox {
+  margin-top: 18px;
+  --border-radius: 5px;
+  --border-width: 1px;
+  --border-color: var(--primary);
+  --border-color-checked: var(--primary);
+  &::part(label) {
+    font-size: 16px;
+    color: #004b40;
+    font-weight: 400;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &[aria-checked]:part(container) {
+    ::part(container) {
+      background: var(--primary);
+    }
+  }
+}
+
+ion-checkbox[aria-checked="true"]::part(container) {
+  background: var(--primary);
+}
+
+ion-button {
+  margin-top: 50px;
+}

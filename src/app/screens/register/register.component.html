@@ -1,0 +1,51 @@
+<ion-header class="register-header ion-no-border">
+  <ion-toolbar class="flex">
+    <ion-button (click)="onBack()" class="absolute btn-back">
+      <ion-icon slot="icon-only" name="chevron-back"></ion-icon>
+    </ion-button>
+
+    <ion-title class="ion-text-center">{{ title }}</ion-title>
+  </ion-toolbar>
+
+  <div id="pager">
+    <section class="flex flex-center">
+      <ng-container
+        class="flex flex-center"
+        *ngFor="let item of [].constructor(3); let i = index"
+      >
+        <span *ngIf="i > 0" class="separator"></span>
+        <ion-checkbox
+          disabled
+          [checked]="slide_index >= i"
+          (click)="onSlide(i)"
+        ></ion-checkbox>
+      </ng-container>
+    </section>
+  </div>
+</ion-header>
+
+<ion-content class="ion-no-padding">
+  <swiper-container #slides allow-touch-move="false">
+    <swiper-slide>
+      <app-phone
+        class="flex flex-column flex-between padding-content"
+        (oncomplete)="onCompletePhone($event)"
+      ></app-phone>
+    </swiper-slide>
+
+    <swiper-slide>
+      <div class="w-100 h-100 padding-content">
+        <app-datos
+          class="w-100 h-100"
+          (oncomplete)="onCompleteData($event)"
+        ></app-datos>
+      </div>
+    </swiper-slide>
+
+    <swiper-slide>
+      <div class="w-100 h-100 padding-content">
+        <app-finish (oncomplete)="onFinish()" class="w-100 h-100"></app-finish>
+      </div>
+    </swiper-slide>
+  </swiper-container>
+</ion-content>

@@ -1,0 +1,16 @@
+#start-message {
+  padding: 40px;
+  flex-grow: 1;
+
+  img {
+    margin-bottom: 50px;
+  }
+
+  span {
+    font-size: 14pt;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-align: center;
+    color: var(--primary);
+  }
+}
