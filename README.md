@@ -2,8 +2,8 @@
 
 ## Inconvenientes
 
-Disfrute mucho los retos de la prueba y pude completarla de manera satisfactoria. Sin embargo, no pude realizar las peticiones a la API de Coink debido que los endpoints enviados no funcionaban correctamente. 
-De todos modos realice el procedimiento donde utilice excepciones para utilizar datos quemados. Se puede ver este procedimiento en el archivo `src/app/services/http.service.ts`
+Disfruté mucho los retos de la prueba y pude completarla de manera satisfactoria. Sin embargo, no pude realizar las peticiones a la API de Coink debido que los endpoints enviados no funcionaban correctamente. 
+De todos modos, realicé el procedimiento donde utilizó excepciones para enviar datos quemados. Se puede ver este procedimiento en el archivo `src/app/services/http.service.ts`
 
 > Los endpoint proporcionados por correo fueron los siguientes:
 > - https://api.bancoink.biz/qa/signup/documentTypes?apiKey=030106
@@ -24,15 +24,15 @@ El archivo del APK puede encontrarse en la carpeta `release` bajo el nombre `coi
 
 Se utilizaron `guards` para redireccionar a la pantalla adecuada según el estado de la sesión y se implementó `reactive forms` para hacer las validaciones del formulario de registro.
 
-## Construccion
+## Construcción
 
-Para realizar la construcción se debe configurar el entorno de desarrollo para Ionic Framework. Se puede ver un instructivo detallado en la [pagina oficial de Ionic](https://ionicframework.com/docs/intro/cli).
+Para realizar la construcción se debe configurar el entorno de desarrollo para Ionic Framework. Se puede ver un instructivo detallado en la [página oficial de Ionic](https://ionicframework.com/docs/intro/cli).
 
-> Luego se realiza la instalacion de librerias de node mediante el terminar de comandos con:
+> Luego se realiza la instalación de librerías de node mediante el terminar de comandos con:
 > ``` bash
 >  npm install
 > ```
-> Para terminar se utiliza ionic para ejecutar el programa en el navegador con el siguiente comando:
+> Para terminar se utiliza Ionic para ejecutar el programa en el navegador con el siguiente comando:
 > ``` bash
 >  ionic serve
 > ```
