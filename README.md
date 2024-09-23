@@ -20,4 +20,19 @@ Al realizar las peticiones se obtuvo un estado de `401 Unauthorized` con la sigu
 
 ## Aclaraciones
  
-El archivo del APK puede encontrarse en la carpeta `release`. Se realizo la firma del APK mediante Android Studio. La llave y su respectivo alias y contraseña se encuentran en la carpeta `keystore`
+El archivo del APK puede encontrarse en la carpeta `release` bajo el nombre `coink-release.apk`. Se realizo la firma del APK mediante Android Studio. La llave, su respectivo alias y contraseña se encuentran en la carpeta `keystore`. <br>
+
+Se utilizaron `guards` para redireccionar a la pantalla adecuada según el estado de la sesión y se implementó `reactive forms` para hacer las validaciones del formulario de registro.
+
+## Construccion
+
+Para realizar la construcción se debe configurar el entorno de desarrollo para Ionic Framework. Se puede ver un instructivo detallado en la [pagina oficial de Ionic](https://ionicframework.com/docs/intro/cli).
+
+> Luego se realiza la instalacion de librerias de node mediante el terminar de comandos con:
+> ``` bash
+>  npm install
+> ```
+> Para terminar se utiliza ionic para ejecutar el programa en el navegador con el siguiente comando:
+> ``` bash
+>  ionic serve
+> ```
